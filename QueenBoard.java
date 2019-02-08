@@ -9,8 +9,27 @@ public QueenBoard(int size){
 }
 
 public boolean placeQueen(int x, int y){
-	board[x][y] = -1;
-	return true;
+	if (board[x][y] == -1 || board[x][y] >= 1){
+		return false;
+	}
+	else {
+		board[x][y] = -1;
+		for(int xt = 0; xt < size; xt++){
+			if (board[x][xt] != -1){
+				board[x][xt]++;
+			}
+		}
+
+		for(int xt = 0; xt < size; xt++){
+			if (board[xt][y] != -1){
+				board[xt][y]++;
+			}
+		}
+
+		// for(){}
+		return true;
+	}
+
 }
 
 public String toString(){
@@ -33,7 +52,9 @@ public String toString(){
 
 public static void main(String[] args) {
 	QueenBoard q = new QueenBoard(8);
-	q.placeQueen(0, 0);
+	q.placeQueen(5, 5);
+	q.placeQueen(5, 6);
+	q.placeQueen(6, 6);
 	System.out.println();
 	System.out.println(q.toString());
 }
