@@ -5,13 +5,13 @@ private int size;
 
 public QueenBoard(int size){
 	board = new int[size][size];
-	for(int x = 0; x < size;x++){
-		for (int y = 0; y < size; y++){
-			System.out.print(board[x][y]);
-			System.out.print(" ");
-		}
-		System.out.println();
-	}
+	// for(int x = 0; x < size;x++){
+	// 	for (int y = 0; y < size; y++){
+	// 		System.out.print(board[x][y]);
+	// 		System.out.print(" ");
+	// 	}
+	// 	System.out.println();
+	// }
 	this.size = size;
 }
 
@@ -24,8 +24,13 @@ public String toString(){
 	String output = "";
 	for(int x = 0; x < size;x++){
 		for (int y = 0; y < size; y++){
+			if (board[x][y] < 0){
+				output += " ";
+			}
+			else{
+				output += "  ";
+			}
 			output += board[x][y];
-			output += " ";
 		}
 		output += "\n";
 	}
@@ -36,6 +41,8 @@ public String toString(){
 public static void main(String[] args) {
 	QueenBoard q = new QueenBoard(8);
 	q.placeQueen(0, 0);
+	System.out.println();
+	System.out.println(q.toString());
 }
 
 
