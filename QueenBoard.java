@@ -25,11 +25,29 @@ public boolean placeQueen(int x, int y){
 				board[xt][xt]++;
 			}
 		}
-
-		// for(){}
 		return true;
 	}
 
+}
+
+public boolean removeQueen(int x, int y){
+	int rawx = x;
+	int rawy = y;
+
+	if (board[x][y] != -1){
+		return false;
+	}
+	else{
+		for(int xt = 0; xt < size; xt++){
+			x = rawx;
+			x+= xt;
+			x%= 8;
+			if (board[x][y] == 5){
+
+			}
+		}
+	}
+	return true;
 }
 
 public String toString(){
