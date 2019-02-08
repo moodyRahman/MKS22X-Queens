@@ -5,13 +5,6 @@ private int size;
 
 public QueenBoard(int size){
 	board = new int[size][size];
-	// for(int x = 0; x < size;x++){
-	// 	for (int y = 0; y < size; y++){
-	// 		System.out.print(board[x][y]);
-	// 		System.out.print(" ");
-	// 	}
-	// 	System.out.println();
-	// }
 	this.size = size;
 }
 
