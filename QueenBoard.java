@@ -15,14 +15,14 @@ public boolean placeQueen(int x, int y){
 	else {
 		board[x][y] = -1;
 		for(int xt = 0; xt < size; xt++){
+			if (board[xt][y] != -1){
+				board[xt][y]++;
+			}
 			if (board[x][xt] != -1){
 				board[x][xt]++;
 			}
-		}
-
-		for(int xt = 0; xt < size; xt++){
-			if (board[xt][y] != -1){
-				board[xt][y]++;
+			if (board[xt][xt] != -1){
+				board[xt][xt]++;
 			}
 		}
 
@@ -53,8 +53,7 @@ public String toString(){
 public static void main(String[] args) {
 	QueenBoard q = new QueenBoard(8);
 	q.placeQueen(5, 5);
-	q.placeQueen(5, 6);
-	q.placeQueen(6, 6);
+	q.placeQueen(0, 1);
 	System.out.println();
 	System.out.println(q.toString());
 }
