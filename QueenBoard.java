@@ -2,6 +2,7 @@ public class QueenBoard{
 
 private int[][] board;
 private int size;
+private int solutions;
 
 public QueenBoard(int size){
 	board = new int[size][size];
@@ -62,14 +63,42 @@ public boolean removeQueen(int x, int y){
 	}
 	else{
 		board[x][y] = 0;
-		int[] horiz = new int[size];
-		int[] verti = new int[size];
-		int[] diago = new int[size];
-		// for(){
-		//
-		// }
+		for(int xt = 0; xt < size; xt++){
+			if (board[xt][y] != -1){
+				board[xt][y]--;
+			}
+			if (board[x][xt] != -1){
+				board[x][xt]--;
+			}
+		}
+		for (int xt = 0; xt < size; xt++){
+			try {
+				if (board[x + xt][y + xt] != -1){
+					board[x + xt][y + xt]--;
+				}
+			} catch (Exception e){}
+
+			try{
+				if (board[x - xt][y + xt] != -1){
+					board[x - xt][y + xt]--;
+				}
+			} catch (Exception e){}
+
+			try{
+				if (board[x + xt][y - xt] != -1){
+					board[x + xt][y - xt]--;
+				}
+			} catch (Exception e){}
+
+			try{
+				if (board[x - xt][y - xt] != -1){
+					board[x - xt][y - xt]--;
+				}
+			} catch (Exception e){}
+
+		}
+		return true;
 	}
-	return true;
 }
 
 public String toString(){
