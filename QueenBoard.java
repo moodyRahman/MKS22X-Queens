@@ -62,8 +62,7 @@ public boolean removeQueen(int x, int y){
 		return false;
 	}
 	else{
-		board[x][y] = 0;
-		for(int xt = 0; xt < size; xt++){
+		for(int xt = 1; xt < size; xt++){
 			if (board[xt][y] != -1){
 				board[xt][y]--;
 			}
@@ -71,7 +70,7 @@ public boolean removeQueen(int x, int y){
 				board[x][xt]--;
 			}
 		}
-		for (int xt = 0; xt < size; xt++){
+		for (int xt = 1; xt < size; xt++){
 			try {
 				if (board[x + xt][y + xt] != -1){
 					board[x + xt][y + xt]--;
@@ -97,6 +96,7 @@ public boolean removeQueen(int x, int y){
 			} catch (Exception e){}
 
 		}
+		board[x][y] = 0;
 		return true;
 	}
 }
@@ -121,12 +121,6 @@ public String toString(){
 
 public static void main(String[] args) {
 	QueenBoard q = new QueenBoard(8);
-	q.placeQueen(3, 4);
-	q.placeQueen(0, 0);
-	// q.placeQueen(5, 5);
-	// q.placeQueen(0, 1);
-	System.out.println();
-	System.out.println(q.toString());
 }
 
 
