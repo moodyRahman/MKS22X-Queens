@@ -21,9 +21,32 @@ public boolean placeQueen(int x, int y){
 			if (board[x][xt] != -1){
 				board[x][xt]++;
 			}
-			if (board[xt][xt] != -1){
-				board[xt][xt]++;
-			}
+		}
+		for (int xt = 0; xt < size; xt++){
+			try {
+				if (board[x + xt][y + xt] != -1){
+					board[x + xt][y + xt]++;
+				}
+			} catch (Exception e){}
+
+			try{
+				if (board[x - xt][y + xt] != -1){
+					board[x - xt][y + xt]++;
+				}
+			} catch (Exception e){}
+
+			try{
+				if (board[x + xt][y - xt] != -1){
+					board[x + xt][y - xt]++;
+				}
+			} catch (Exception e){}
+
+			try{
+				if (board[x - xt][y - xt] != -1){
+					board[x - xt][y - xt]++;
+				}
+			} catch (Exception e){}
+
 		}
 		return true;
 	}
@@ -38,14 +61,13 @@ public boolean removeQueen(int x, int y){
 		return false;
 	}
 	else{
-		for(int xt = 0; xt < size; xt++){
-			x = rawx;
-			x+= xt;
-			x%= 8;
-			if (board[x][y] == 5){
-
-			}
-		}
+		board[x][y] = 0;
+		int[] horiz = new int[size];
+		int[] verti = new int[size];
+		int[] diago = new int[size];
+		// for(){
+		//
+		// }
 	}
 	return true;
 }
@@ -70,8 +92,10 @@ public String toString(){
 
 public static void main(String[] args) {
 	QueenBoard q = new QueenBoard(8);
-	q.placeQueen(5, 5);
-	q.placeQueen(0, 1);
+	q.placeQueen(3, 4);
+	q.placeQueen(0, 0);
+	// q.placeQueen(5, 5);
+	// q.placeQueen(0, 1);
 	System.out.println();
 	System.out.println(q.toString());
 }
