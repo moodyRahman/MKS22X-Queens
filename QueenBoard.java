@@ -109,11 +109,14 @@ public boolean solvehelp(int col){
 	}
 	for (int x = 0; x < size; x++){
 		System.out.println("here");
-		placeQueen(x, col);
-		if (solvehelp(col + 1)){
-			return true;
+		if (placeQueen(x, col)){
+			if (solvehelp(col + 1)){
+				return true;
+			}
+			removeQueen(x, col);
 		}
-		removeQueen(x, col);
+
+
 	}
 	return false;
 }
