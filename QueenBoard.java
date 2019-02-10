@@ -115,8 +115,6 @@ public boolean solvehelp(int col){
 			}
 			removeQueen(x, col);
 		}
-
-
 	}
 	return false;
 }
