@@ -108,24 +108,26 @@ public boolean solvehelp(int col){
 		return true;
 	}
 	for (int x = 0; x < size; x++){
+		System.out.println("here");
 		placeQueen(x, col);
 		if (solvehelp(col + 1)){
 			return true;
 		}
-		board[x][col] = 0;
+		removeQueen(x, col);
 	}
 	return false;
 }
 
 public boolean solve(){
-	for (int x = 0; x < size; x++){
-		for (int y = 0; y < size; y++){
-			if (board[x][y] == 0){
-				this.placeQueen(x, y);
-			}
-		}
-	}
-	return true;
+	return solvehelp(0);
+	// for (int x = 0; x < size; x++){
+	// 	for (int y = 0; y < size; y++){
+	// 		if (board[x][y] == 0){
+	// 			this.placeQueen(x, y);
+	// 		}
+	// 	}
+	// }
+	// return true;
 }
 
 public int countSpaces(){
