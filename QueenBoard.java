@@ -103,6 +103,17 @@ public boolean removeQueen(int x, int y){
 	}
 }
 
+public boolean solve(){
+	for (int x = 0; x < size; x++){
+		for (int y = 0; y < size; y++){
+			if (board[x][y] == 0){
+				this.placeQueen(x, y);
+			}
+		}
+	}
+	return true;
+}
+
 public int countSpaces(){
 	int output = 0;
 	for (int x = 0; x < size; x++){
@@ -142,21 +153,23 @@ public String toString(){
 
 public static void main(String[] args) {
 	QueenBoard q = new QueenBoard(8);
-	q.placeQueen(4, 5);
-	q.placeQueen(2, 4);
+	// q.placeQueen(4, 5);
+	// q.placeQueen(2, 4);
+	// // System.out.println(q);
+	// q.placeQueen(1, 1);
+	// // System.out.println(q);
+	// q.placeQueen(0, 3);
+	// // System.out.println(q);
+	// q.removeQueen(1, 1);
 	// System.out.println(q);
-	q.placeQueen(1, 1);
+	// System.out.println();
+	// System.out.println();
+	// System.out.println();
+	// q.placeQueen(4, 5);
+	// q.placeQueen(2, 4);
+	// q.placeQueen(0, 3);
 	// System.out.println(q);
-	q.placeQueen(0, 3);
-	// System.out.println(q);
-	q.removeQueen(1, 1);
-	System.out.println(q);
-	System.out.println();
-	System.out.println();
-	System.out.println();
-	q.placeQueen(4, 5);
-	q.placeQueen(2, 4);
-	q.placeQueen(0, 3);
+	q.solve();
 	System.out.println(q);
 
 
