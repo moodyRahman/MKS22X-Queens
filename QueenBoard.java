@@ -103,6 +103,20 @@ public boolean removeQueen(int x, int y){
 	}
 }
 
+public boolean solvehelp(int col){
+	if (col >= size){
+		return true;
+	}
+	for (int x = 0; x < size; x++){
+		placeQueen(x, col);
+		if (solvehelp(col + 1)){
+			return true;
+		}
+		board[x][col] = 0;
+	}
+	return false;
+}
+
 public boolean solve(){
 	for (int x = 0; x < size; x++){
 		for (int y = 0; y < size; y++){
