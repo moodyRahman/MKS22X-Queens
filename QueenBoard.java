@@ -105,6 +105,9 @@ public boolean removeQueen(int x, int y){
 
 public boolean solvehelp(int col){
 	if (col >= size){
+		solutions++;
+		// System.out.println(this);
+		// solvehelp(col);
 		return true;
 	}
 	for (int x = 0; x < size; x++){
@@ -120,6 +123,10 @@ public boolean solvehelp(int col){
 
 public boolean solve(){
 	return solvehelp(0);
+}
+
+public int countSolutions(){
+	return 5;
 }
 
 public int countSpaces(){
@@ -160,7 +167,7 @@ public String toString(){
 
 
 public static void main(String[] args) {
-	QueenBoard q = new QueenBoard(8);
+	QueenBoard q = new QueenBoard(27);
 	boolean b = q.solve();
 	System.out.println(q);
 	System.out.println(b);
