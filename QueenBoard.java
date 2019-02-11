@@ -108,7 +108,6 @@ public boolean solvehelp(int col){
 		return true;
 	}
 	for (int x = 0; x < size; x++){
-		System.out.println("here");
 		if (placeQueen(x, col)){
 			if (solvehelp(col + 1)){
 				return true;
@@ -121,14 +120,6 @@ public boolean solvehelp(int col){
 
 public boolean solve(){
 	return solvehelp(0);
-	// for (int x = 0; x < size; x++){
-	// 	for (int y = 0; y < size; y++){
-	// 		if (board[x][y] == 0){
-	// 			this.placeQueen(x, y);
-	// 		}
-	// 	}
-	// }
-	// return true;
 }
 
 public int countSpaces(){
@@ -170,24 +161,9 @@ public String toString(){
 
 public static void main(String[] args) {
 	QueenBoard q = new QueenBoard(8);
-	// q.placeQueen(4, 5);
-	// q.placeQueen(2, 4);
-	// // System.out.println(q);
-	// q.placeQueen(1, 1);
-	// // System.out.println(q);
-	// q.placeQueen(0, 3);
-	// // System.out.println(q);
-	// q.removeQueen(1, 1);
-	// System.out.println(q);
-	// System.out.println();
-	// System.out.println();
-	// System.out.println();
-	// q.placeQueen(4, 5);
-	// q.placeQueen(2, 4);
-	// q.placeQueen(0, 3);
-	// System.out.println(q);
-	q.solve();
+	boolean b = q.solve();
 	System.out.println(q);
+	System.out.println(b);
 
 
 }
