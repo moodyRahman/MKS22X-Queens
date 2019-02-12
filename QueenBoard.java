@@ -138,14 +138,14 @@ private boolean solvehelp(int col){
 
 public boolean solve(){
 	if (!isZeroed()){
-		System.out.println("HERE");
+		throw new IllegalStateException("Zero the board first");
 	}
 	return solvehelp(0);
 }
 
 public int countSolutions(){
 	if (!isZeroed()){
-		System.out.println("HERE");
+		throw new IllegalStateException("Zero the board first");
 	}
 	return counthelp(0);
 }
@@ -190,16 +190,17 @@ private void debug(){
 
 public static void main(String[] args) {
 	double s = System.currentTimeMillis();
+
 	QueenBoard q = new QueenBoard(8);
 	System.out.println(q.isZeroed());
-	int b = q.countSolutions();
-	System.out.println(b);
+	q.countSolutions();
 	q.solve();
+	// System.out.println(b);
 	System.out.println(q);
 	// System.out.println(q);
-	// System.out.println((System.currentTimeMillis() - s) / 1000);
 
 
+	System.out.println((System.currentTimeMillis() - s) / 1000);
 }
 
 
