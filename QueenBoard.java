@@ -112,9 +112,12 @@ public boolean solvehelp(int col){
 	}
 	for (int x = 0; x < size; x++){
 		if (placeQueen(x, col)){
+			debug();
 			if (solvehelp(col + 1)){
+				debug();
 				return true;
 			}
+			debug();
 			removeQueen(x, col);
 		}
 	}
@@ -165,9 +168,14 @@ public String toString(){
 	return output;
 }
 
+public void debug(){
+	System.out.println(Text.go(1,1));
+	System.out.println(this);Text.wait(50); //adjust this delay
+}
+
 
 public static void main(String[] args) {
-	QueenBoard q = new QueenBoard(27);
+	QueenBoard q = new QueenBoard(8);
 	boolean b = q.solve();
 	System.out.println(q);
 	System.out.println(b);
