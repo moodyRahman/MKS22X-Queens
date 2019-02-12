@@ -105,9 +105,6 @@ public boolean isZeroed(){
 	for (int x = 0; x < size; x++) {
 		for (int y = 0; y < size;y++) {
 			if (board[x][y] != 0){
-				System.out.print(x + ", " + y + "\n");
-				System.out.println(board[0][1]);
-				System.out.println("SASAA");
 				return false;
 			}
 		}
@@ -140,17 +137,20 @@ public boolean solvehelp(int col){
 }
 
 public boolean solve(){
+	if (!isZeroed()){
+		System.out.println("HERE");
+	}
 	return solvehelp(0);
 }
 
 public int countSolutions(){
+	if (!isZeroed()){
+		System.out.println("HERE");
+	}
 	return counthelp(0);
 }
 
 public int counthelp(int col){
-	// if (!isZeroed()){
-	// 	throw new IllegalStateException();
-	// }
 	if (col >= size){
 		// debug();
 		solutions++;
@@ -192,9 +192,11 @@ public void debug(){
 public static void main(String[] args) {
 	double s = System.currentTimeMillis();
 	QueenBoard q = new QueenBoard(8);
+	System.out.println(q.isZeroed());
 	int b = q.countSolutions();
-	System.out.println(q);
-	System.out.println((System.currentTimeMillis() - s) / 1000);
+	System.out.println(b);
+	// System.out.println(q);
+	// System.out.println((System.currentTimeMillis() - s) / 1000);
 
 
 }
