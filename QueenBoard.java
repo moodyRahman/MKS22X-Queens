@@ -171,12 +171,11 @@ public String toString(){
 	for(int x = 0; x < size;x++){
 		for (int y = 0; y < size; y++){
 			if (board[x][y] < 0){
-				output += " ";
+				output += "Q ";
 			}
 			else{
-				output += "  ";
+				output += "_ ";
 			}
-			output += board[x][y];
 		}
 		output += "\n";
 	}
@@ -195,6 +194,8 @@ public static void main(String[] args) {
 	System.out.println(q.isZeroed());
 	int b = q.countSolutions();
 	System.out.println(b);
+	q.solve();
+	System.out.println(q);
 	// System.out.println(q);
 	// System.out.println((System.currentTimeMillis() - s) / 1000);
 
