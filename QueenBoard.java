@@ -71,8 +71,7 @@ public boolean removeQueen(int x, int y){
 			if (board[x][xt] != -1){
 				board[x][xt]--;
 			}
-		}
-		for (int xt = 0; xt < size; xt++){
+
 			try {
 				if (board[x + xt][y + xt] != -1){
 					board[x + xt][y + xt]--;
@@ -96,7 +95,6 @@ public boolean removeQueen(int x, int y){
 					board[x - xt][y - xt]--;
 				}
 			} catch (Exception e){}
-
 		}
 		board[x][y] = 0;
 		return true;
@@ -191,7 +189,7 @@ public void debug(){
 
 
 public static void main(String[] args) {
-	QueenBoard q = new QueenBoard(8);
+	QueenBoard q = new QueenBoard(5);
 	System.out.println(q.countSolutions());
 	System.out.println(q);
 
