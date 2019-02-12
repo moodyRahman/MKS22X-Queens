@@ -128,15 +128,19 @@ public boolean solve(){
 	return solvehelp(0);
 }
 
-public int countSolutions(int col){
+public int countSolutions(){
+	return counthelp(0);
+}
+
+public int counthelp(int col){
 	if (col >= size){
-		debug();
+		// debug();
 		solutions++;
 		return 1;
 	}
 	for (int x = 0; x < size; x++){
 		if (placeQueen(x, col)){
-			countSolutions(col + 1);
+			counthelp(col + 1);
 			removeQueen(x, col);
 		}
 	}
@@ -182,13 +186,14 @@ public String toString(){
 
 public void debug(){
 	System.out.println(Text.go(1,1));
-	System.out.println(this);Text.wait(100); //adjust this delay
+	System.out.println(this);Text.wait(1); //adjust this delay
 }
 
 
 public static void main(String[] args) {
 	QueenBoard q = new QueenBoard(8);
-	System.out.println(q.countSolutions(0));
+	System.out.println(q.countSolutions());
+	System.out.println(q);
 
 
 }
