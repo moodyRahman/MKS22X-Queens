@@ -101,7 +101,24 @@ public boolean removeQueen(int x, int y){
 	}
 }
 
+public boolean isZeroed(){
+	for (int x = 0; x < size; x++) {
+		for (int y = 0; y < size;y++) {
+			if (board[x][y] != 0){
+				System.out.print(x + ", " + y + "\n");
+				System.out.println(board[0][1]);
+				System.out.println("SASAA");
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 public boolean solvehelp(int col){
+	// if (!isZeroed()){
+	// 	throw new IllegalStateException();
+	// }
 	if (col >= size){
 		solutions++;
 		// System.out.println(this);
@@ -110,12 +127,12 @@ public boolean solvehelp(int col){
 	}
 	for (int x = 0; x < size; x++){
 		if (placeQueen(x, col)){
-			debug();
+			// debug();
 			if (solvehelp(col + 1)){
-				debug();
+				// debug();
 				return true;
 			}
-			debug();
+			// debug();
 			removeQueen(x, col);
 		}
 	}
@@ -131,6 +148,9 @@ public int countSolutions(){
 }
 
 public int counthelp(int col){
+	// if (!isZeroed()){
+	// 	throw new IllegalStateException();
+	// }
 	if (col >= size){
 		// debug();
 		solutions++;
@@ -170,9 +190,11 @@ public void debug(){
 
 
 public static void main(String[] args) {
-	QueenBoard q = new QueenBoard(5);
-	System.out.println(q.countSolutions());
+	double s = System.currentTimeMillis();
+	QueenBoard q = new QueenBoard(8);
+	int b = q.countSolutions();
 	System.out.println(q);
+	System.out.println((System.currentTimeMillis() - s) / 1000);
 
 
 }
