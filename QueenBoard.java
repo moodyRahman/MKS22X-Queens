@@ -9,7 +9,7 @@ public QueenBoard(int size){
 	this.size = size;
 }
 
-public boolean placeQueen(int x, int y){
+private boolean placeQueen(int x, int y){
 	if (board[x][y] == -1 || board[x][y] >= 1){
 		return false;
 	}
@@ -54,7 +54,7 @@ public boolean placeQueen(int x, int y){
 
 }
 
-public boolean removeQueen(int x, int y){
+private boolean removeQueen(int x, int y){
 	int rawx = x;
 	int rawy = y;
 
@@ -101,7 +101,7 @@ public boolean removeQueen(int x, int y){
 	}
 }
 
-public boolean isZeroed(){
+private boolean isZeroed(){
 	for (int x = 0; x < size; x++) {
 		for (int y = 0; y < size;y++) {
 			if (board[x][y] != 0){
@@ -112,7 +112,7 @@ public boolean isZeroed(){
 	return true;
 }
 
-public boolean solvehelp(int col){
+private boolean solvehelp(int col){
 	// if (!isZeroed()){
 	// 	throw new IllegalStateException();
 	// }
@@ -150,7 +150,7 @@ public int countSolutions(){
 	return counthelp(0);
 }
 
-public int counthelp(int col){
+private int counthelp(int col){
 	if (col >= size){
 		// debug();
 		solutions++;
@@ -183,7 +183,7 @@ public String toString(){
 	return output;
 }
 
-public void debug(){
+private void debug(){
 	System.out.println(Text.go(1,1));
 	System.out.println(this);Text.wait(1); //adjust this delay
 }
