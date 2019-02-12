@@ -146,25 +146,6 @@ public int counthelp(int col){
 	return solutions;
 }
 
-public int countSpaces(){
-	int output = 0;
-	for (int x = 0; x < size; x++){
-		for (int y = 0; y < size; y++){
-			if (board[x][y] == 0){
-				output++;
-			}
-		}
-	}
-	return output;
-}
-
-public boolean haySpaces(){
-	if ((countSpaces()) > 0){
-		return true;
-	}
-	return false;
-}
-
 public String toString(){
 	String output = "";
 	for(int x = 0; x < size;x++){
