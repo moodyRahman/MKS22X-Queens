@@ -130,13 +130,13 @@ public boolean solve(){
 
 public int countSolutions(int col){
 	if (col >= size){
-		debug();
-		System.out.print("a");
+		// debug();
+		solutions++;
 		return 1;
 	}
 	for (int x = 0; x < size; x++){
 		if (placeQueen(x, col)){
-			solutions += countSolutions(col + 1);
+			countSolutions(col + 1);
 			removeQueen(x, col);
 		}
 	}
@@ -182,7 +182,7 @@ public String toString(){
 
 public void debug(){
 	System.out.println(Text.go(1,1));
-	System.out.println(this);Text.wait(2000); //adjust this delay
+	System.out.println(this);Text.wait(50); //adjust this delay
 }
 
 
