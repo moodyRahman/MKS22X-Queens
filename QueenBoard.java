@@ -130,7 +130,7 @@ public boolean solve(){
 
 public int countSolutions(int col){
 	if (col >= size){
-		// debug();
+		debug();
 		solutions++;
 		return 1;
 	}
@@ -182,12 +182,12 @@ public String toString(){
 
 public void debug(){
 	System.out.println(Text.go(1,1));
-	System.out.println(this);Text.wait(50); //adjust this delay
+	System.out.println(this);Text.wait(100); //adjust this delay
 }
 
 
 public static void main(String[] args) {
-	QueenBoard q = new QueenBoard(5);
+	QueenBoard q = new QueenBoard(8);
 	System.out.println(q.countSolutions(0));
 
 
