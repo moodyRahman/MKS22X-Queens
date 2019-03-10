@@ -117,7 +117,7 @@ private boolean solvehelp(int col){
 	// 	throw new IllegalStateException();
 	// }
 	if (col >= size){
-		solutions++;
+		// solutions++;
 		// System.out.println(this);
 		// solvehelp(col);
 		return true;
@@ -151,6 +151,7 @@ public int countSolutions(){
 }
 
 private int counthelp(int col){
+	// int out = 0;
 	if (col >= size){
 		// debug();
 		solutions++;
@@ -162,6 +163,8 @@ private int counthelp(int col){
 			removeQueen(x, col);
 		}
 	}
+
+	// return 0;
 
 	return solutions;
 }
@@ -184,21 +187,16 @@ public String toString(){
 
 private void debug(){
 	System.out.println(Text.go(1,1));
-	System.out.println(this);Text.wait(1); //adjust this delay
+	System.out.println(this);Text.wait(1000); //adjust this delay
 }
 
 
 public static void main(String[] args) {
 	double s = System.currentTimeMillis();
 
-	QueenBoard q = new QueenBoard(8);
-	System.out.println(q.isZeroed());
-	q.countSolutions();
-	q.solve();
-	// System.out.println(b);
-	System.out.println(q);
-	// System.out.println(q);
-
+	QueenBoard q = new QueenBoard(2);
+	// System.out.println(q.solve());
+	System.out.println(q.countSolutions());
 
 	System.out.println((System.currentTimeMillis() - s) / 1000);
 }
